@@ -2,7 +2,6 @@ import os
 import glob
 
 from PIL import Image, ImageDraw
-import pytesseract
 import cv2
 
 import matplotlib.pyplot as plt
