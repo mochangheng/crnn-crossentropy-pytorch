@@ -27,23 +27,22 @@ all_images.sort()
 count = 0
 for i, image in enumerate(all_images):
     im = cv2.imread(image)
-    im = cv2.resize(im, (0,0), fx=4, fy=4)
+    im = cv2.resize(im, (0,0), fx=1, fy=1)
 
     im_gray = cv2.cvtColor(im, cv2.COLOR_BGR2GRAY)
-    im_gray = cv2.GaussianBlur(im_gray, (9, 9), 0)
+    im_gray = cv2.GaussianBlur(im_gray, (5, 5), 0)
 
-    ret, im_th = cv2.threshold(im_gray, 120, 255, cv2.THRESH_OTSU)
+    ret, im_th = cv2.threshold(im_gray, 170, 255, cv2.THRESH_OTSU)
     im_th = cv2.bitwise_not(im_th)
 
     y = im_th.shape[0]
     x = im_th.shape[1]
 
-    im_th2 = im_th[int(0.1*y):int(0.9*y), int(0.1*x):int(0.9*x)]
+    im_th2 = im_th[int(0.1 * y):int(0.9 * y), int(0.1 * x):int(0.9 * x)]
 
-    # kernel = np.ones((5, 5), np.uint8)
-    # im_th2 = cv2.dilate(im_th2, kernel, iterations=4)
+    # kernel = np.ones((2, 2), np.uint8)
+    # im_th2 = cv2.dilate(im_th2, kernel, iterations=0)
     # im_th2 = cv2.erode(im_th2, kernel, iterations=0)
-    # plt.imshow(im_th2)
 
     ctrs, hier = cv2.findContours(im_th2.copy(), cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
     rects = [cv2.boundingRect(ctr) for ctr in ctrs]
