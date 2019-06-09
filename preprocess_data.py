@@ -9,10 +9,10 @@ import pandas as pd
 # Settings
 IMG_PATH = 'cell_images/training_set/'
 LABELS = 'cell_images/training_set_values.txt'
-OUT_ALPHABET = 'cell_images/alphabet.txt'
-OUT_LABELS = 'cell_images/train.txt'
-OUT_VAL_LABELS = 'cell_images/dev.txt'
-OUT_ALL_LABELS = 'cell_images/all.txt'
+OUT_ALPHABET = 'crnn_labels/alphabet.txt'
+OUT_LABELS = 'crnn_labels/train.txt'
+OUT_VAL_LABELS = 'crnn_labels/dev.txt'
+OUT_ALL_LABELS = 'crnn_labels/all.txt'
 FRAC = 0.75
 
 

@@ -49,10 +49,10 @@ def min_resize(image, min_size=32):
 
 
 # Settings
-IMG_PATH = 'cell_images/training_set/'
-OUT_PATH = 'cell_processed_images/training_set/'
-IMG_VAL_PATH = 'cell_images/validation_set/'
-OUT_VAL_PATH = 'cell_processed_images/validation_set/'
+IMG_PATH = 'mnist_images/training_set/'
+OUT_PATH = 'mnist_processed_images/training_set/'
+IMG_VAL_PATH = 'mnist_images/validation_set/'
+OUT_VAL_PATH = 'mnist_processed_images/validation_set/'
 
 
 # Import images
@@ -65,17 +65,19 @@ all_val_images.sort()
 
 # Preprocess images
 for image in all_images:
-    name = image.split('/')[-1].replace('.jpg', '')
+    name = image.split('/')[-1].replace('.png', '')
     filename = f'{OUT_PATH}{name}.jpg'
 
     image = cv2.imread(image)
-    binarized_image = binarize(image)
-    cv2.imwrite(filename, binarized_image)
+    image = noisen(image)
+    inverted_image = invert(image)
+    cv2.imwrite(filename, inverted_image)
 
 for image in all_val_images:
     name = image.split('/')[-1].replace('.jpg', '')
     filename = f'{OUT_VAL_PATH}{name}.jpg'
 
     image = cv2.imread(image)
-    binarized_image = binarize(image)
-    cv2.imwrite(filename, binarized_image)
+    image = noisen(image)
+    inverted_image = invert(image)
+    cv2.imwrite(filename, inverted_image)
