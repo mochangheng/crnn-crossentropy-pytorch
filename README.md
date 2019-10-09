@@ -4,15 +4,7 @@ State-of-the-art OCR for handwritten digit recognition, based on custom cross-en
 
 ```python
 94.66 % accuracy on provided dataset vs 93 % human validation inter-agreement accuracy.
-```
-
-## Consulting
-
-Our open source models are provided without support or warranty. 
-
-If you need help building, managing or training specialized state of the art models or machine learning pipelines for your own business needs in **[vision, NLP, tabular, time series]**, shoot me an email **(weixiluo [dot] gmail [dot] com)** and I will get back to you < 24 hours.
-
-Past and current clients include top hedge funds, leading startups and biotech companies. 
+``` 
 
 ## Model architecture
 
